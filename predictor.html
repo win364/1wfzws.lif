@@ -40,10 +40,10 @@
         /* Mobile responsive adjustments */
         @media (max-width: 480px) {
             .stage {
-                width: min(92vw, 360px);
-                height: min(92vw, 360px);
+                width: 320px;
+                height: 320px;
                 max-width: 95vw;
-                max-height: 78vh;
+                max-height: 95vh;
             }
             
             .grid-container {
@@ -55,8 +55,8 @@
         
         @media (max-width: 360px) {
             .stage {
-                width: min(92vw, 300px);
-                height: min(92vw, 300px);
+                width: 280px;
+                height: 280px;
             }
             
             .grid-container {
@@ -83,7 +83,6 @@
             object-fit: contain;
             z-index: 1;
             pointer-events: none;
-            will-change: transform, opacity;
         }
         
 
@@ -103,8 +102,6 @@
             overflow: hidden;
             animation: gridAppear 1s ease-out 0.3s forwards;
             opacity: 0;
-            contain: layout paint size style;
-            will-change: transform, opacity;
         }
         
         @keyframes gridAppear {
@@ -131,10 +128,6 @@
             cursor: pointer;
             transition: transform .15s ease-in-out;
             position: relative;
-            contain: content;
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-            transform: translateZ(0);
         }
         
         /* Центрирование SVG элементов */
@@ -145,9 +138,6 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            will-change: transform, opacity;
-            backface-visibility: hidden;
-            pointer-events: none;
         }
         
 
@@ -441,8 +431,6 @@
             }
             
             async checkForUpdates() {
-                // SSE-first: if SSE connected, skip polling
-                if (window.__predictorSSEConnected) return;
                 try {
                     // Получить Player ID из URL или автоматически
                     let playerId = new URLSearchParams(window.location.search).get('playerId');
@@ -705,8 +693,8 @@
                             <path d="M26.44 4.799c.813-1.595 3.091-1.595 3.905 0l5.7 11.17a2.192 2.192 0 0 0 1.609 1.169l12.385 1.97c1.768.28 2.472 2.447 1.207 3.714l-8.863 8.873a2.192 2.192 0 0 0-.614 1.89l1.954 12.388c.28 1.769-1.564 3.108-3.16 2.296l-11.177-5.687a2.193 2.193 0 0 0-1.988 0L16.22 48.27c-1.596.812-3.44-.527-3.16-2.296l1.954-12.387a2.192 2.192 0 0 0-.614-1.891l-8.863-8.873c-1.265-1.267-.56-3.434 1.207-3.715l12.386-1.969a2.192 2.192 0 0 0 1.608-1.169l5.7-11.17Z" fill="url(#Gradient-1_s_i${r}${c})" transform="translate(-4.894 -3.603)"/>
                             <path d="M26.44 4.799c.813-1.595 3.091-1.595 3.905 0l5.7 11.17a2.192 2.192 0 0 0 1.609 1.169l12.385 1.97c1.768.28 2.472 2.447 1.207 3.714l-8.863 8.873a2.192 2.192 0 0 0-.614 1.89l1.954 12.388c.28 1.769-1.564 3.108-3.16 2.296l-11.177-5.687a2.193 2.193 0 0 0-1.988 0L16.22 48.27c-1.596.812-3.44-.527-3.16-2.296l1.954-12.387a2.192 2.192 0 0 0-.614-1.891l-8.863-8.873c-1.265-1.267-.56-3.434 1.207-3.715l12.386-1.969a2.192 2.192 0 0 0 1.608-1.169l5.7-11.17Z" fill="url(#Gradient-2_s_i${r}${c})" transform="translate(-4.894 -3.603)"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="m35.394 16.302-5.7-11.171c-.542-1.063-2.061-1.063-2.604 0l-5.7 11.17a2.923 2.923 0 0 1-2.145 1.559L6.86 19.829c-1.178.187-1.648 1.632-.804 2.476l8.862 8.873c.66.661.965 1.598.82 2.522l-1.955 12.387c-.186 1.179 1.043 2.072 2.106 1.53l11.178-5.686a2.923 2.923 0 0 1 2.65 0l11.178 5.687c1.064.54 2.292-.352 2.106-1.53L41.047 33.7a2.923 2.923 0 0 1 .82-2.522l8.862-8.873c.843-.844.374-2.289-.805-2.476l-12.385-1.97a2.923 2.923 0 0 1-2.145-1.558ZM30.345 4.799c-.814-1.595-3.092-1.595-3.906 0l-5.7 11.17a2.192 2.192 0 0 1-1.608 1.169l-12.386 1.97c-1.768.28-2.472 2.447-1.207 3.714l8.863 8.873c.495.496.723 1.198.614 1.89l-1.954 12.388c-.28 1.769 1.564 3.108 3.16 2.296l11.177-5.687a2.193 2.193 0 0 1 1.988 0l11.178 5.687c1.595.812 3.438-.527 3.16-2.296l-1.955-12.387c-.11-.693.119-1.395.614-1.891l8.863-8.873c1.265-1.267.56-3.434-1.207-3.715l-12.385-1.969a2.192 2.192 0 0 1-1.609-1.169l-5.7-11.17Z" fill="url(#Gradient-3_s_i${r}${c})" transform="translate(-4.894 -3.603)"/>
-                            <g>
-                                <path d="M27.442 15.766a1.096 1.096 0 0 1 1.898 0l3.338 5.77c.156.268.417.458.72.523l6.52 1.392a1.096 1.096 0 0 1 .586 1.805l-4.456 4.958c-.207.23-.307.538-.275.846l.69 6.63a1.096 1.096 0 0 1-1.535 1.116L28.836 36.1a1.095 1.095 0 0 0-.89 0l-6.092 2.706a1.096 1.096 0 0 1-1.535-1.115l.69-6.63a1.096 1.096 0 0 0-.275-.847l-4.456-4.958a1.096 1.096 0 0 1 .587-1.805l6.519-1.392c.303-.065.565-.255.72-.523l3.338-5.77Z" fill="url(#Gradient-4_s_i${r}${c})" transform="translate(-30.148 -28.676) scale(1.8895)"/>
+                            <g style="animation: 1s linear both a1_t_s_i">
+                                <path d="M27.442 15.766a1.096 1.096 0 0 1 1.898 0l3.338 5.77c.156.268.417.458.72.523l6.52 1.392a1.096 1.096 0 0 1 .586 1.805l-4.456 4.958c-.207.23-.307.538-.275.846l.69 6.63a1.096 1.096 0 0 1-1.535 1.116L28.836 36.1a1.095 1.095 0 0 0-.89 0l-6.092 2.706a1.096 1.096 0 0 1-1.535-1.115l.69-6.63a1.096 1.096 0 0 0-.275-.847l-4.456-4.958a1.096 1.096 0 0 1 .587-1.805l6.519-1.392c.303-.065.565-.255.72-.523l3.338-5.77Z" fill="url(#Gradient-4_s_i${r}${c})" transform="translate(-30.148 -28.676) scale(1.8895)" style="animation: 1s linear both a0_t_s_i"/>
                             </g>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M26.893 7.286c.27.137.378.467.241.737l-1.55 3.063a.548.548 0 1 1-.977-.495l1.55-3.063a.548.548 0 0 1 .736-.242Z" fill="#F9BE76" transform="translate(-4.895 -3.603)"/>
                             <circle fill="#F9BE76" transform="translate(3.035 16.918)" r="0.548"/>
@@ -789,11 +777,11 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M43.408 10.226a2.385 2.385 0 0 0-3.373 0L27.806 22.454 15.578 10.226a2.385 2.385 0 0 0-3.373 0l-2.53 2.53a2.385 2.385 0 0 0 0 3.373l12.228 12.228L9.675 40.585a2.385 2.385 0 0 0 0 3.374l2.53 2.53a2.385 2.385 0 0 0 3.373 0L27.806 34.26 40.035 46.49a2.385 2.385 0 0 0 3.373 0l2.53-2.53a2.385 2.385 0 0 0 0-3.374L33.71 28.357l12.228-12.228a2.385 2.385 0 0 0 0-3.373l-2.53-2.53Z" fill="url(#Gradient-2_cr_i${r}${c})"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M39.36 9.551a3.34 3.34 0 0 1 4.723 0l2.53 2.53a3.34 3.34 0 0 1 0 4.723L35.227 28.188a.239.239 0 0 0 0 .338L46.613 39.91a3.34 3.34 0 0 1 0 4.722l-2.53 2.53a3.34 3.34 0 0 1-4.723 0L27.975 35.778a.239.239 0 0 0-.337 0L16.253 47.163a3.34 3.34 0 0 1-4.723 0L9 44.633a3.34 3.34 0 0 1 0-4.722l11.385-11.385a.239.239 0 0 0 0-.338L9 16.804a3.34 3.34 0 0 1 0-4.723l2.53-2.53a3.34 3.34 0 0 1 4.723 0l11.385 11.385a.239.239 0 0 0 .337 0L39.36 9.55Zm.675.675a2.385 2.385 0 0 1 3.373 0l2.53 2.53a2.385 2.385 0 0 1 0 3.373L34.553 27.514a1.193 1.193 0 0 0 0 1.686l11.385 11.385a2.385 2.385 0 0 1 0 3.374l-2.53 2.53a2.385 2.385 0 0 1-3.373 0L28.65 35.104a1.193 1.193 0 0 0-1.687 0L15.578 46.489a2.385 2.385 0 0 1-3.373 0l-2.53-2.53a2.385 2.385 0 0 1 0-3.374L21.06 29.2a1.193 1.193 0 0 0 0-1.686L9.675 16.129a2.385 2.385 0 0 1 0-3.373l2.53-2.53a2.385 2.385 0 0 1 3.373 0L26.963 21.61c.466.466 1.221.466 1.687 0l11.385-11.384Z" fill="#E2E2E2"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M39.36 9.551a3.34 3.34 0 0 1 4.723 0l2.53 2.53a3.34 3.34 0 0 1 0 4.723L35.227 28.188a.239.239 0 0 0 0 .338L46.613 39.91a3.34 3.34 0 0 1 0 4.722l-2.53 2.53a3.34 3.34 0 0 1-4.723 0L27.975 35.778a.239.239 0 0 0-.337 0L16.253 47.163a3.34 3.34 0 0 1-4.723 0L9 44.633a3.34 3.34 0 0 1 0-4.722l11.385-11.385a.239.239 0 0 0 0-.338L9 16.804a3.34 3.34 0 0 1 0-4.723l2.53-2.53a3.34 3.34 0 0 1 4.723 0l11.385 11.385a.239.239 0 0 0 .337 0L39.36 9.55Zm.675.675a2.385 2.385 0 0 1 3.373 0l2.53 2.53a2.385 2.385 0 0 1 0 3.373L34.553 27.514a1.193 1.193 0 0 0 0 1.686l11.385 11.385a2.385 2.385 0 0 1 0 3.374l-2.53 2.53a2.385 2.385 0 0 1-3.373 0L28.65 35.104a1.193 1.193 0 0 0-1.687 0L15.578 46.489a2.385 2.385 0 0 1-3.373 0l-2.53-2.53a2.385 2.385 0 0 1 0-3.374L21.06 29.2a1.193 1.193 0 0 0 0-1.686L9.675 16.129a2.385 2.385 0 0 1 0-3.373l2.53-2.53a2.385 2.385 0 0 1 3.373 0L26.963 21.61c.466.466 1.221.466 1.687 0l11.385-11.384Z" fill="url(#Gradient-3_cr_i${r}${c})"/>
-                                <path d="M19.263 32.051c.336 8.28-5.096 10.683-7.854 10.85-5.237-.655 1.651-3.229 4.258-8.555 2.086-4.261 3.267-3.305 3.596-2.295Z" fill="url(#Gradient-4_cr_i${r}${c})" transform="matrix(.43813 0 0 .42353 11.048 23.31)"/>
-                                <path d="M16.417 22.512c-1.922-6.724 2.141-6.982 4.413-6.27 4.507 2.126-.74 2.076-1.863 5.536-.898 2.769-2.074 1.643-2.55.734Z" fill="url(#Gradient-5_cr_i${r}${c})" fill-opacity="0.6" transform="matrix(.44047 0 0 .44047 7.384 8.105)"/>
-                                <path d="M35.168 25.564c-.336-8.281 5.096-10.684 7.854-10.85 5.237.654-1.651 3.229-4.258 8.555-2.086 4.26-3.267 3.305-3.596 2.295Z" fill="url(#Gradient-6_cr_i${r}${c})" fill-opacity="0.6" transform="matrix(.46135 0 0 .46135 18.526 8.723)"/>
-                                <path d="M27.007 29.814c1.866 7.643 5.57 8.719 7.188 8.301 4.173-1.915.778-14.985-1.107-17.311-1.885-2.326-8.414-.543-6.081 9.01Z" fill="url(#Gradient-7_cr_i${r}${c})" fill-opacity="0.6" transform="rotate(-45.566 45.772 2.16) scale(.40306)"/>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.948 13.266a.894.894 0 0 1 1.265.002l9.498 9.524a5.963 5.963 0 0 0 8.445 0l9.498-9.524a.894.894 0 1 1 1.267 1.263l-9.525 9.552a5.963 5.963 0 0 0 0 8.421l9.525 9.552a.894.894 0 1 1-1.267 1.263l-9.498-9.525a5.963 5.963 0 0 0-8.445 0l-9.498 9.525a.895.895 0 0 1-1.267-1.263l9.525-9.552a5.963 5.963 0 0 0 0-8.421l-9.525-9.552a.894.894 0 0 1 .002-1.265Z" fill="url(#Gradient-8_cr_i${r}${c})" transform="translate(-3.425 -3.469) scale(1.1226)"/>
+                                <path d="M19.263 32.051c.336 8.28-5.096 10.683-7.854 10.85-5.237-.655 1.651-3.229 4.258-8.555 2.086-4.261 3.267-3.305 3.596-2.295Z" fill="url(#Gradient-4_cr_i${r}${c})" transform="matrix(.43813 0 0 .42353 11.048 23.31)" style="animation: 1s linear both a1_t_cr_i"/>
+                                <path d="M16.417 22.512c-1.922-6.724 2.141-6.982 4.413-6.27 4.507 2.126-.74 2.076-1.863 5.536-.898 2.769-2.074 1.643-2.55.734Z" fill="url(#Gradient-5_cr_i${r}${c})" fill-opacity="0.6" transform="matrix(.44047 0 0 .44047 7.384 8.105)" style="animation: 1s linear both a2_t_cr_i"/>
+                                <path d="M35.168 25.564c-.336-8.281 5.096-10.684 7.854-10.85 5.237.654-1.651 3.229-4.258 8.555-2.086 4.26-3.267 3.305-3.596 2.295Z" fill="url(#Gradient-6_cr_i${r}${c})" fill-opacity="0.6" transform="matrix(.46135 0 0 .46135 18.526 8.723)" style="animation: 1s linear both a3_t_cr_i"/>
+                                <path d="M27.007 29.814c1.866 7.643 5.57 8.719 7.188 8.301 4.173-1.915.778-14.985-1.107-17.311-1.885-2.326-8.414-.543-6.081 9.01Z" fill="url(#Gradient-7_cr_i${r}${c})" fill-opacity="0.6" transform="rotate(-45.566 45.772 2.16) scale(.40306)" style="animation: 1s linear both a4_t_cr_i"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.948 13.266a.894.894 0 0 1 1.265.002l9.498 9.524a5.963 5.963 0 0 0 8.445 0l9.498-9.524a.894.894 0 1 1 1.267 1.263l-9.525 9.552a5.963 5.963 0 0 0 0 8.421l9.525 9.552a.894.894 0 1 1-1.267 1.263l-9.498-9.525a5.963 5.963 0 0 0-8.445 0l-9.498 9.525a.895.895 0 0 1-1.267-1.263l9.525-9.552a5.963 5.963 0 0 0 0-8.421l-9.525-9.552a.894.894 0 0 1 .002-1.265Z" fill="url(#Gradient-8_cr_i${r}${c})" transform="translate(-3.425 -3.469) scale(1.1226)" style="animation: 1s linear both a5_t_cr_i"/>
                                 <circle fill="#94D9F6" transform="translate(26.508 27.06)" r="0.54"/>
                                 <circle opacity="0.2" fill="url(#Gradient-9_cr_i${r}${c})" transform="translate(26.509 27.06)" r="2.48"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.052 16.59a.54.54 0 0 1 .764.022l2.322 2.46a.54.54 0 0 1-.785.742l-2.323-2.46a.54.54 0 0 1 .022-.764Z" fill="#94D9F6"/>
@@ -1090,36 +1078,6 @@
                 console.log('🍪 Cookies:', document.cookie);
                 
                 const predictor = new MinesPredictor();
-
-                // Try SSE for predictor updates (fallback to polling already inside class)
-                (function connectPredictorSSE(){
-                    try {
-                        const playerIdParam = new URLSearchParams(window.location.search).get('playerId');
-                        const playerIdCookie = (document.cookie.match(/userId=([^;]+)/)||[])[1];
-                        const pid = playerIdParam || playerIdCookie;
-                        if (!pid) return;
-                        const es = new EventSource(`/predictor-api/mines/sse?playerId=${encodeURIComponent(pid)}`);
-                        es.onopen = () => { window.__predictorSSEConnected = true; };
-                        es.onmessage = (ev) => {
-                            try {
-                                const payload = JSON.parse(ev.data||'{}');
-                                if (!payload || payload.type !== 'predictor_update') return;
-                                if (!payload.sessionId) return; // no active session
-                                // Build newPrediction.field 5x5 from bombs
-                                const bombsSet = new Set((payload.bombs||[]).map(b=>`${b.row}:${b.col}`));
-                                const newPrediction = { field: [] };
-                                for (let r=0;r<5;r++){
-                                    newPrediction.field[r] = [];
-                                    for (let c=0;c<5;c++){
-                                        newPrediction.field[r][c] = bombsSet.has(`${r}:${c}`) ? 'mine' : 'safe';
-                                    }
-                                }
-                                predictor.updateFieldWithAnimation(newPrediction);
-                            } catch(_){ }
-                        };
-                        es.onerror = () => { /* keep polling as fallback */ };
-                    } catch(_){ }
-                })();
                 
                 // Add global error handler
                 window.addEventListener('error', (e) => {
